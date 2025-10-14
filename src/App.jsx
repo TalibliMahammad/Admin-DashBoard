@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import Sidebar from './components/Layout/Sidebar'
 import Header from './components/Layout/Header'
-import DashBoard from './components/Layout/Dashboard/DashBoard'
+import Dashboard from './components/Layout/Dashboard/Dashboard'
 
 const App = () => {
 
@@ -17,7 +17,7 @@ const App = () => {
           <main className='flex-1 h-full overflow-y-auto scrollbar-hide bg-transparent'>
             <div className='flex-1 overflow-y-auto bg-transparent'>
               <div className='p-6 space-y-6'>
-                {currentPage === 'dashboard' && <DashBoard />}
+                {currentPage === 'dashboard' && <Dashboard />}
               </div>
             </div>
           </main>
