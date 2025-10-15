@@ -61,7 +61,7 @@ const Header = ({setSideBarCollapsed, onToggleSidebar, darkMode,setDarkMode}) =>
                             <p className='text-xs text-slate-400 dark:text-slate-300'>Admin</p>
 
                         </div>
-                        \
+                        
                     </div>
                     <ChevronDown className='w-5 h-5 text-slate-400 dark:text-slate-300 cursor-pointer' />
 

@@ -193,7 +193,7 @@ const Sidebar = ({ currentPage, setCurrentPage, onToggleSidebar, collapsed }) =>
                     !collapsed && (
                         <div className='p-4 border-slate-200/50 dark:border-slate-700/50'>
                             <div className='flex items-center space-x-3 rounded-xl dark:bg-slate-800/50'>
-                                <img src="https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="user" className='w-10 h-10 rounded-full ring-2 ring-blue-500' />
+                                <img src="https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="user" className='w-10 h-10 rounded-full ring-2 ring-blue-500'/>
                                 <div className='flex-1 min-w-0'>
                                     <div className='flex-1 min-w-0'>
                                         <p className='text-sm font-medium text-slate-800 dark:text-white truncate'>Mahammad Talibli</p>
