@@ -1,7 +1,13 @@
 import { Bell, ChevronDown, Filter, Menu, Plus, Search, Settings, Sun } from 'lucide-react'
 import React from 'react'
 
-const Header = ({setSideBarCollapsed, onToggleSidebar}) => {
+const Header = ({setSideBarCollapsed, onToggleSidebar, darkMode,setDarkMode}) => {
+
+
+
+
+
+
     return (
         <div className='bg-white/-80 dark:bg-slate-900/80 backdrop-blur-xl  border-b border-slate-200/50 dark:border-slate-700/50 px-6 py-4 '>
             <div className='flex items-center justify-between'>
@@ -33,8 +39,8 @@ const Header = ({setSideBarCollapsed, onToggleSidebar}) => {
                         <span className='text-sm font-medium'>New</span>
                     </button>
                     {/* Toggle */}
-                    <button className='p-2.5 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'>
-                        <Sun className='w-5 h-5' />
+                    <button  onClick={() => setDarkMode(!darkMode)} className='p-2.5 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'>
+                        <Sun  className='w-5 h-5' />
                     </button>
                     {/* Notification */}
                     <button className='relative p-2.5 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors'>
@@ -55,6 +61,7 @@ const Header = ({setSideBarCollapsed, onToggleSidebar}) => {
                             <p className='text-xs text-slate-400 dark:text-slate-300'>Admin</p>
 
                         </div>
+                        \
                     </div>
                     <ChevronDown className='w-5 h-5 text-slate-400 dark:text-slate-300 cursor-pointer' />
 

@@ -99,7 +99,7 @@ const menuItems = [
 
 
 
-const Sidebar = ({ currentPage, setCurrentPage, onToggleSidebar, collapsed, onPageChange }) => {
+const Sidebar = ({ currentPage, setCurrentPage, onToggleSidebar, collapsed }) => {
 
     const [expanded, setExpanded] = useState(new Set([`analytics`]))
     const toggleExpanded = (itemid) => {
@@ -140,12 +140,12 @@ const Sidebar = ({ currentPage, setCurrentPage, onToggleSidebar, collapsed, onPa
                     {menuItems.map((item) => {
                         return (
                             <div key={item.id} >
-                                <button className={`w-full flex items-center justify-between  p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-200 ${currentPage === item.id || item.active ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg shadow-blue-500/50" : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 text-white shadow-lg shadow-blue-500/25"} `}
+                                <button className={`w-full flex items-center justify-between  p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-200 ${currentPage === item.id || item.active ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg shadow-blue-500/50" : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 shadow-lg shadow-blue-500/25"} `}
                                     onClick={() => {
                                         if (item.submenu) {
                                             toggleExpanded(item.id)
                                         } else {
-                                            onPageChange(item.id)
+                                            setCurrentPage(item.id)
                                         }
                                     }}
 
