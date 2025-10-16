@@ -9,7 +9,7 @@ const Header = ({setSideBarCollapsed, onToggleSidebar, darkMode,setDarkMode}) =>
 
 
     return (
-        <div className='bg-white/-80 dark:bg-slate-900/80 backdrop-blur-xl  border-b border-slate-200/50 dark:border-slate-700/50 px-6 py-4 '>
+    <div className='bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl  border-b border-slate-200/50 dark:border-slate-700/50 px-6 py-4 '>
             <div className='flex items-center justify-between'>
                 <div className='flex items-center space-x-4 '>
                     <button onClick={onToggleSidebar}
@@ -50,11 +50,11 @@ const Header = ({setSideBarCollapsed, onToggleSidebar, darkMode,setDarkMode}) =>
                         </span>
                     </button>
                     {/* Settings */}
-                    <button className='p-2.5 rounded-xl text-slate-300 dark:slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors'>
+                    <button className='p-2.5 rounded-xl text-slate-300 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors'>
                         <Settings className='w-5 h-5' />
                     </button>
                     {/*  user profile*/}
-                    <div className='flex items-center space-x-3 p-1  rounded-2xl pl-3 border-1  dark:border-slate-700'>
+                    <div className='flex items-center space-x-3 p-1  rounded-2xl pl-3 border  dark:border-slate-700'>
                         <img className='w-8 h-8 rounded-full ring-2 ring-blue-500' src="https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=76&q=80" alt="" />
                         <div className='hidden md:block'>
                             <p className='text-sm font-medium text-slate-500 dark:text-slate-400'>Mahammmad Talibli</p>

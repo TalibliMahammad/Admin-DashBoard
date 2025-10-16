@@ -118,42 +118,41 @@ const ActivityFeed = () => {
 
 
 
+    
+
 
     return (
         <div
-            className='bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl  rounded-b-2xl border border-slate-200/50 dark:border-slate-700/50
-    overflow-hidden'
+            className='bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-b-2xl border border-slate-200/50 dark:border-slate-700/50 overflow-hidden w-full max-w-full'
         >
-            <div className='p-6 border-b border-slate-200/50 dark:border-slate-700/50'>
-                <div>
+            <div className='p-4 sm:p-6 border-b border-slate-200/50 dark:border-slate-700/50 flex items-start sm:items-center justify-between gap-4'>
+                <div className='flex-1 min-w-0'>
                     <h3 className='text-lg font-bold text-slate-800 dark:text-white'>Activity Feed</h3>
-                    <p>Recent System Activity</p>
+                    <p className='text-sm text-slate-500 dark:text-slate-400'>Recent System Activity</p>
                 </div>
-                <button className=' font-medium text-sm text-blue-600 dark:text-blue-500 hover:text-blue-700'>View All</button>
+                <button className='mt-2 sm:mt-0 font-medium text-sm text-blue-600 dark:text-blue-500 hover:text-blue-700'>View All</button>
             </div>
-            <div className='p-6'>
-                <div className='space-y-4'>
-                    {activities.map((activity => {
+
+            <div className='p-4 sm:p-6 w-full max-w-full'>
+                <div className='space-y-3 w-full max-w-full'>
+                    {activities.map((activity) => {
                         return (
-                            <div className='flex items-start space-x-4 p-6 rounded-xl hover:bg-slate-50
-                    dark:hover:bg-slate-800/50 transition-colors'>
-                                <div className={`p-2 rounded-lg ${activity.bgColor}`}>
-                                    {<activity.icon className={`w-6 h-6 ${activity.color}`} />}
+                            <div key={activity.id} className='flex flex-col sm:flex-row items-start sm:items-center sm:space-x-4 space-y-3 sm:space-y-0 p-4 sm:p-6 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors w-full max-w-full'>
+                                <div className={`flex-shrink-0 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-lg ${activity.bgColor}`}>
+                                    <activity.icon className={`w-5 h-5 sm:w-6 sm:h-6 ${activity.color}`} />
                                 </div>
-                                <div className='flex-1 min-w-0'>
-                                    <h4 className='text-sm font-semibold text-slate-800 dark:text-white'>{activity.title}</h4>
-                                    <p className='text-sm text-slate-500 dark:text-slate-400'>{activity.description}</p>
-                                    <div className='flex items-center-safe space-x-1 mt-1'>
-                                        <Clock className='w-4 h-4 text-slate-400' />
-                                        <span className='text-xs text-slate-400 dark:text-slate-500'>{activity.time}</span>
+                                <div className='flex-1 min-w-0 w-full'>
+                                    <h4 className='text-sm font-semibold text-slate-800 dark:text-white truncate'>{activity.title}</h4>
+                                    <p className='text-sm text-slate-500 dark:text-slate-400 truncate mt-1'>{activity.description}</p>
+                                    <div className='flex items-center space-x-1 mt-2 text-xs text-slate-400 dark:text-slate-500'>
+                                        <Clock className='w-4 h-4' />
+                                        <span>{activity.time}</span>
                                     </div>
                                 </div>
-
                             </div>
                         )
-                    }))}
+                    })}
                 </div>
-
             </div>
         </div>
     )

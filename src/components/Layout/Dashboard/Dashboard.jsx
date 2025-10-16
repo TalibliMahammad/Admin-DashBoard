@@ -11,11 +11,13 @@ const DashBoard = () => {
       <StatsGrid />
       {/* Charts Section */}
       <ChartSection />
-      <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
-        <div className='xl:col-span-2'>
+      <div className='grid grid-cols-1 lg:grid-cols-3 gap-6'>
+        <div className='col-span-1 lg:col-span-2 w-full'>
           <TableSection />
         </div>
-        <ActivityFeed />
+        <div className='col-span-1 lg:col-span-1 w-full'>
+          <ActivityFeed />
+        </div>
       </div>
     </div>
   )

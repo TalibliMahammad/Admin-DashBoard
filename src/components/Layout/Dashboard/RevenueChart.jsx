@@ -32,20 +32,20 @@ const RevenueChart = () => {
 
     return (
         <div className='bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-b-2xl p-6 border border-slate-200/50 dark:border-slate-700/50'>
-            <div className='flex items-center justify-between mb-6'>
-                <div>
+            <div className='flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-3'>
+                <div className='flex-1 min-w-0'>
                     <h3 className='text-xl font-bold text-slate-800 dark:text-white'>Revenue Chart</h3>
-                    <p className='text-sm text-slate-500 dark:text-slate-400'>Monthly revenue and expenses</p>
+                    <p className='text-sm text-slate-500 dark:text-slate-400 truncate'>Monthly revenue and expenses</p>
                 </div>
-                <div className='flex items-center space-x-2'>
+                <div className='flex items-center space-x-3 flex-wrap'>
                     <div className='flex items-center space-x-2'>
-                        <div className='w-3 h-3 bg-gradient-to-r from-slate-500 to-purple-500 rounded-full'></div>
+                        <div className='w-3 h-3 bg-gradient-to-r from-slate-500 to-purple-500 rounded-full' aria-hidden></div>
                         <div className='text-sm text-slate-600 dark:text-slate-400'>
                             <span>Revenue</span>
                         </div>
                     </div>
                     <div className='flex items-center space-x-2'>
-                        <div className='w-3 h-3 bg-gradient-to-r from-slate-500 to-slate-400 rounded-full'></div>
+                        <div className='w-3 h-3 bg-gradient-to-r from-slate-500 to-slate-400 rounded-full' aria-hidden></div>
                         <div className='text-sm text-slate-600 dark:text-slate-400'>
                             <span>Expenses</span>
                         </div>
@@ -53,7 +53,7 @@ const RevenueChart = () => {
 
                 </div>
             </div>
-            <div className='h-80 text-black'>
+            <div className='h-64 sm:h-80 text-black'>
                 <ResponsiveContainer width="100%" height="100%">
                     <BarChart data={data} margin={{ top: 30, right: 30, left: 0, bottom: 0 }}>
 

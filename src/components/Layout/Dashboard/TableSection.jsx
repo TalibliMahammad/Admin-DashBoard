@@ -164,155 +164,75 @@ const topProducts = [
 
 
 const TableSection = () => {
-
-  const getStatusColor = (status) => {
-    switch (status) {
-      case "completed":
-        return "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400";
-      case "pending":
-        return "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400";
-      case "rejected":
-        return "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400";
-      default:
-        return "bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-400";
-    }
-  };
-
-
   return (
     <div className='space-y-6'>
-      <div className='bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl  rounded-b-2xl border border-slate-200/50 dark:border-slate-700/50
-    overflow-hidden
-    '>
-        <div className='p-6 border-b border-slate-200/50 dark:border-slate-700/50'>
-
-          <div className='flex items-center justify-between'>
-            <div>
-              <h3 className='text-lg font-bold text-slate-800 dark:text-white'>
-                Recent Orders
-              </h3>
-              <p className='text-sm text-slate-500 dark:text-slate-400'>
-                Latest transactions by customers
-              </p>
-            </div>
-            <button className='text-blue-600 hover:text-blue-700 text-sm font-medium'>
-              View  All
-            </button>
-
+      <div className='bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-2xl border border-slate-200/50 dark:border-slate-700/50 overflow-hidden'>
+        <div className='p-4 sm:p-6 border-b border-slate-200/50 dark:border-slate-700/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0'>
+          <div>
+            <h3 className='text-lg font-bold text-slate-800 dark:text-white'>Recent Orders</h3>
+            <p className='text-sm text-slate-500 dark:text-slate-400'>Latest order history</p>
           </div>
-
+          <button className='mt-2 sm:mt-0 font-medium text-sm text-blue-600 dark:text-blue-500 hover:text-blue-700'>View All</button>
         </div>
-
-        {/* Table */}
         <div className='overflow-x-auto'>
-          <table className='w-full'>
+          <table className='min-w-full divide-y divide-slate-200 dark:divide-slate-700 text-sm'>
             <thead>
               <tr>
-                <th className='text-left p-4 text-sm font-semibold text-slate-600 dark:text-slate-400'>
-                  Order ID
-                </th>
-                <th className='text-left p-4 text-sm font-semibold text-slate-600 dark:text-slate-400'>
-                  Product
-                </th>
-                <th className='text-left p-4 text-sm font-semibold text-slate-600 dark:text-slate-400'>
-                  Amount
-                </th>
-                <th className='text-left p-4 text-sm font-semibold text-slate-600 dark:text-slate-400'>
-                  Status
-                </th>
-                <th className='text-left p-4 text-sm font-semibold text-slate-600 dark:text-slate-400'>
-                  Date
-                </th>
+                <th className='px-3 sm:px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider'>Order</th>
+                <th className='px-3 sm:px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider'>Customer</th>
+                <th className='px-3 sm:px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider hidden md:table-cell'>Date</th>
+                <th className='px-3 sm:px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider'>Status</th>
+                <th className='px-3 sm:px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider'>Amount</th>
+                <th className='px-3 sm:px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider hidden md:table-cell'>Action</th>
               </tr>
             </thead>
-            <tbody>
-              {orders.map((order, index) => {
-                return (
-                  <tr className='border-b border-slate-200/50 dark:border-slate-700/50 hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors'>
-                    <td className='p-4' key={index} >
-                      <span className='text-sm font-medium text-blue-600'>
-                        {order.id}
-                      </span>
-                    </td>
-                    <td className='p-4' >
-                      <span className='text-sm text-slate-800 dark:text-white'>
-                        {order.customer}
-                      </span>
-                    </td>
-                    <td className='p-4' >
-                      <span className='text-sm text-slate-800 dark:text-white'>
-                        {order.product}
-                      </span>
-                    </td>
-                    <td className='p-4' >
-                      <span className='text-sm text-slate-800 dark:text-white'>
-                        {order.amount}
-                      </span>
-                    </td>
-                    <td className='p-4' >
-                      <span className={`text-slate-400 dark:text-white font-medium text-xs px-3 py-1 rounded-full ${getStatusColor(order.status)}`}>
-                        {order.date}
-                      </span>
-                    </td>
-                    <td className='p-4' >
-                      <span className='text-sm text-slate-800 dark:text-white'>
-                        <MoreHorizontal className='w-4 h-4' />
-                      </span>
-                    </td>
-                  </tr>
-                )
-              })}
+            <tbody className='bg-white dark:bg-slate-900 divide-y divide-slate-200 dark:divide-slate-700'>
+              {orders.map((order) => (
+                <tr key={order.id} className='hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors'>
+                  <td className='px-3 sm:px-6 py-3 whitespace-nowrap font-medium text-slate-800 dark:text-white'>{order.id}</td>
+                  <td className='px-3 sm:px-6 py-3 whitespace-nowrap text-slate-600 dark:text-slate-400'>{order.customer}</td>
+                  <td className='px-3 sm:px-6 py-3 whitespace-nowrap text-slate-600 dark:text-slate-400 hidden md:table-cell'>{order.date}</td>
+                  <td className='px-3 sm:px-6 py-3 whitespace-nowrap'>
+                    <span className={`font-medium text-xs px-3 py-1 rounded-full ${order.status === "completed" ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400" : order.status === "pending" ? "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400" : "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400"}`}>{order.status}</span>
+                  </td>
+                  <td className='px-3 sm:px-6 py-3 whitespace-nowrap text-slate-600 dark:text-slate-400'>{order.amount}</td>
+                  <td className='px-3 sm:px-6 py-3 whitespace-nowrap hidden md:table-cell'>
+                    <button className='text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium text-xs'>Details</button>
+                  </td>
+                </tr>
+              ))}
             </tbody>
-
           </table>
         </div>
-
       </div>
-      {/* top product */}
-      <div className='bg-white/80  dark:bg-slate-900/80  backdrop-blur-xl rounded-2xl border
-      border-slate-200/50 dark:border-slate-700/50 overflow-hidden'>
-        <div className='p-6 border-b border-slate-200/50 dark:border-slate-700/50'>
-          <div className='flex items-center justify-between'>
-            <div className='text-lg font-bold text-slate-800  dark:text-white'>
-              <h3 className='text-lg font-bold text-slate-800 dark:text-white'>
-                Top Product
-              </h3>
-            </div>
-            <p className='text-sm text-slate-500 dark:text-slate-400'>
-              best performing product
-            </p>
+      {/* Top Products Section */}
+      <div className='bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-2xl border border-slate-200/50 dark:border-slate-700/50 overflow-hidden'>
+        <div className='p-4 sm:p-6 border-b border-slate-200/50 dark:border-slate-700/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0'>
+          <div>
+            <h3 className='text-lg font-bold text-slate-800 dark:text-white'>Top Product</h3>
+            <p className='text-sm text-slate-500 dark:text-slate-400'>Best performing product</p>
           </div>
-          <button className='text-blue-600 hover:text-blue-700 text-sm font-medium'>View All</button>
+          <button className='mt-2 sm:mt-0 font-medium text-sm text-blue-600 dark:text-blue-500 hover:text-blue-700'>View All</button>
         </div>
-        {/* Dynamic Data */}
-
-        <div className='p-6 space-y-4'>
-          {topProducts.map((product, index) => {
-            return (
-              <div className='flex items-center justify-between p-4 rounded-2xl hover:bg-slate-50/50 dark:hover:bg-slate-800/50'>
-            <div className='flex-1'>
-              <h4 className='text-sm font-medium text-slate-800 dark:text-white'>
-                {product.name}
-              </h4>
-              <p className='text-xs text-slate-500 dark:text-slate-400'> {product.category}</p>
-            </div>
-            <div className='text-right'>
-              <p className='text-sm font-medium text-slate-800 dark:text-white'>
-                {product.sales}
-              </p>
-              <div className='flex items-center space-x-1'>
-               {product.trend === "up" ? <TrendingUp className='w-4 h-4 text-emerald-500' /> : <TrendingDown className='w-4 h-4 text-red-500' />}
-                <span className={`text-sm font-semibold ${product.trend === "up" ? " text-emerald-500" : " text-red-500"}`} >{product.change}%</span>
-
+        <div className='p-4 sm:p-6 space-y-3'>
+          {topProducts.map((product) => (
+            <div key={product.name} className='flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 sm:p-4 rounded-2xl hover:bg-slate-50/50 dark:hover:bg-slate-800/50'>
+              <div className='flex-1 min-w-0'>
+                <h4 className='text-sm font-medium text-slate-800 dark:text-white truncate'>{product.name}</h4>
+                <p className='text-xs text-slate-500 dark:text-slate-400 truncate'>{product.revenue}</p>
+              </div>
+              <div className='text-right mt-3 sm:mt-0'>
+                <p className='text-sm font-medium text-slate-800 dark:text-white'>{product.sales}</p>
+                <div className='flex items-center space-x-1 justify-end'>
+                  {product.trend === "up" ? <TrendingUp className='w-4 h-4 text-emerald-500' /> : <TrendingDown className='w-4 h-4 text-red-500' />}
+                  <span className={`text-sm font-semibold ${product.trend === "up" ? " text-emerald-500" : " text-red-500"}`}>{product.change}</span>
+                </div>
               </div>
             </div>
-          </div>
-            )
-          })}
+          ))}
         </div>
       </div>
-    </div >
-
+    </div>
   )
 }
 
